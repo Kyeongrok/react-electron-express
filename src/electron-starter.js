@@ -10,17 +10,17 @@ const url = require('url');
 // Keep a global reference of the window object, if you don't, the window will
 // be closed automatically when the JavaScript object is garbage collected.
 let mainWindow;
+let child;
 
-function createWindow() {
-    // Create the browser window.
+function renderWindow(){
     mainWindow = new BrowserWindow({width: 800, height: 600});
 
     // and load the index.html of the app.
     const startUrl = process.env.ELECTRON_START_URL || url.format({
-            pathname: path.join(__dirname, '/../build/index.html'),
-            protocol: 'file:',
-            slashes: true
-        });
+        pathname: path.join(__dirname, '/../build/index.html'),
+        protocol: 'file:',
+        slashes: true
+    });
     mainWindow.loadURL(startUrl);
     // Open the DevTools.
     mainWindow.webContents.openDevTools();
@@ -31,7 +31,25 @@ function createWindow() {
         // in an array if your app supports multi windows, this is the time
         // when you should delete the corresponding element.
         mainWindow = null
-    })
+    });
+}
+
+
+function createWindow() {
+    renderWindow();
+    // Create the browser window.
+    let exec = require('child_process').exec;
+    child = exec('node ./server.js');
+    child.stdout.on('data', function(data) {
+        console.log('stdout: ' + data);
+    });
+    child.stderr.on('data', function(data) {
+        console.log('stdout: ' + data);
+    });
+    child.on('close', function(code) {
+        console.log('closing code: ' + code);
+        child.kill();
+    });
 }
 
 // This method will be called when Electron has finished
@@ -44,6 +62,7 @@ app.on('window-all-closed', function () {
     // On OS X it is common for applications and their menu bar
     // to stay active until the user quits explicitly with Cmd + Q
     if (process.platform !== 'darwin') {
+        child.kill();
         app.quit()
     }
 });
@@ -53,6 +72,7 @@ app.on('activate', function () {
     // dock icon is clicked and there are no other windows open.
     if (mainWindow === null) {
         createWindow()
+
     }
 });
 
