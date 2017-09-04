@@ -20,6 +20,8 @@
     "cookie-parser": "^1.4.1",
     "cors": "^2.8.4",
     "express": "^4.13.4",
+    "json-parser": "^1.1.5",
+    "parse-json": "^3.0.0",
     "react": "^15.4.2",
     "react-dom": "^15.4.2"
   },
