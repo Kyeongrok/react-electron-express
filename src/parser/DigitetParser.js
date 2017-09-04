@@ -14,7 +14,7 @@ const printHttpResponse = url => client.fetch(url, {}, (err, $) => {
 
   console.log(string);
   // const json = JSON.parse(string.replace('dataLayer.push(', '').replace(');', ''));
-  // const match = string.match(/data/m);
+   const match = string.match(/data/m);
   // console.log(match.length);
 });
 const url = 'https://www.digitec.ch/de/s1/producttype/tv-4?tagIds=538&take=10';
