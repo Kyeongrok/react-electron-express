@@ -1,4 +1,3 @@
-// eslint-disable-next-line import/newline-after-import
 const express = require('express');
 const app = module.exports = express();
 const server = require('http').createServer(app);
