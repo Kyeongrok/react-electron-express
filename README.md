@@ -9,6 +9,10 @@
 , [conforama](http://www.conforama.ch/rayon3_high-tech_tv--video---home-cinema_televisions-led_10051_10601_-16_42073_42119_42110)
 의 날짜, 시간, 가격, 세일가격(있으면), 제품명을 추출해서 각 사이트의 버튼을 누르면 데이터가 웹 페이지에 출력되게 한다.
 
+### 개발 하는 방법
+* alt + f11에서 build menu가 나온다.
+* dev - 개발용 electron + server를 띄움
+* server - 서버만 실행한다
 
 ### 크롤링 하는 방법
 
