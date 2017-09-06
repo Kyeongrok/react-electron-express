@@ -15,7 +15,6 @@
 * server - 서버만 실행한다
 
 ### 크롤링 하는 방법
-
 1.digitec
 <pre>
 300개 콜 한다.
@@ -29,8 +28,20 @@
 </pre>
 
 3.melectronics
+<pre>
+http://www.melectronics.ch/view/ProductListAjaxController
+위 url에 post로 아래 Parameter를 넘겨서 호출해본다
+q:*
+numProducts:15
+navigation:/TV & Audio/Fernseher/
+fromIndex:30
+sort:
+listview:list
+ajax:true
+</pre>
 
 4.mediamarkt
+
 
 5.conforama
 

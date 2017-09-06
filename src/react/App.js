@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import './App.css';
+import './common/css/App.css';
 import axios from 'axios';
 
 class App extends Component {
@@ -12,10 +12,10 @@ class App extends Component {
   }
 
   handleClickButton() {
-    console.log("click");
     axios.get('http://localhost:1987/digitec')
-      .then(function (response) {
-        console.log(response);
+      .then( (response) => {
+        console.log(response.data.list);
+        this.setState({list: response.data.list});
       })
       .catch(function (error) {
         console.log(error);
@@ -27,6 +27,7 @@ class App extends Component {
     return (
       <div className="App">
         <div className="App-header">
+          <input type="text" />
           <button onClick={() => this.handleClickButton()}>digitec</button>
         </div>
         <p className="App-intro">
