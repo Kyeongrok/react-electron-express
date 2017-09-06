@@ -1,15 +1,15 @@
-var melectronics_url = "http://www.melectronics.ch/c/de/TV_%26_Audio/Fernseher/";
+const melectronicsUrl = 'http://www.melectronics.ch/c/de/TV_%26_Audio/Fernseher/';
 
-var request = require("request")
-var cheerio = require("cheerio")
+const request = require('request');
+const cheerio = require('cheerio');
 
-var request_options = {
-    method: "GET",
-    uri: melectronics_url,
-    headers: { "User-Agent": "Mozilla/5.0" }
+const requestOptions = {
+  method: 'GET',
+  uri: melectronicsUrl,
+  headers: { 'User-Agent': 'Mozilla/5.0' },
 };
 
-request(request_options, function (error, response, html) {
-    if (error) { throw error };
-    console.log(html);
+request(requestOptions, (error, response, html) => {
+  if (error) { throw error; }
+  console.log(html);
 });
