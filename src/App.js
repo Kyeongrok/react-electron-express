@@ -12,7 +12,8 @@ class App extends Component {
   }
 
   handleClickButton() {
-    axios.get('http://localhost:1987')
+    console.log("click");
+    axios.get('http://localhost:1987/digitec')
       .then(function (response) {
         console.log(response);
       })

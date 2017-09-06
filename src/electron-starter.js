@@ -39,7 +39,7 @@ function createWindow() {
   renderWindow();
   // Create the browser window.
   const exec = require('child_process').exec;
-  child = exec('node ./server.js');
+  child = exec('node ./src/server/server.js');
   child.stdout.on('data', (data) => {
     console.log(`stdout: ${data}`);
   });
