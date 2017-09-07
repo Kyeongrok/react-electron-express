@@ -11,5 +11,14 @@ const requestOptions = {
 
 request(requestOptions, (error, response, html) => {
   if (error) { throw error; }
-  console.log(html);
+  // console.log(html);
+
+  // load website 
+  var $ = cheerio.load(html);
+
+  // find total number of item
+  $('.total').first().each(function (index, elem) {
+    console.log($(this).text())
+  })
+
 });
