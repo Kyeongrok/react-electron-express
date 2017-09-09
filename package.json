@@ -21,13 +21,17 @@
   "dependencies": {
     "axios": "^0.16.2",
     "body-parser": "^1.15.0",
+    "casperjs": "^1.1.4",
     "cheerio-httpcli": "^0.7.0",
     "cookie-parser": "^1.4.1",
     "cors": "^2.8.4",
     "escope": "^3.6.0",
     "express": "^4.13.4",
     "json-parser": "^1.1.5",
+    "node-phantom": "^0.2.5",
     "parse-json": "^3.0.0",
+    "phantom": "^4.0.5",
+    "phantomjs": "^2.1.7",
     "react": "^15.4.2",
     "react-dom": "^15.4.2"
   },

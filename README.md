@@ -27,6 +27,11 @@
 페이지당 8개 제품인것으로 보인다.
 </pre>
 
+<pre>
+여기는 안될 것으로 보임
+iframe안쪽은 내부 호출로 보이나 호출하는 곳 ip가 다르면 호출이 안됨 
+</pre>
+
 3.melectronics
 <pre>
 http://www.melectronics.ch/view/ProductListAjaxController
@@ -41,7 +46,15 @@ ajax:true
 </pre>
 
 4.mediamarkt
+<pre>
+https://vision.mediamarkt.ch/de/fernseher/fernseher/idkjkp83j5u6
+위 url을 콜 한다.
 
+전체 개수를 알아낸다.
+/20을 한 만큼
+https://vision.mediamarkt.ch/LocalServices/Search.svc/GetMoreResults
+를 request payload에서 값을  뽑는다.
+</pre>
 
 5.conforama
 

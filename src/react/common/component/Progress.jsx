@@ -6,7 +6,7 @@ class Progress extends Component {
         return (
             <div className="loading-container">
                 <div className="loading"></div>
-                <div id="loading-text">April Skin</div>
+                <div id="loading-text">{this.props.logoText}</div>
             </div>
         );
     }
