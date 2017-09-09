@@ -7,8 +7,13 @@ const digitecParser = require('../../parser/DigitecParser');
 
 router.get('/', (req, res, next) => {
   console.log('GET /');
-  console.log(req.query);
-  const string = client.fetchSync('https://www.digitec.ch/de/s1/producttype/tv-4?tagIds=538&take=10');
+  console.log(req.query.requstItemNumber);
+  let requestItemNumber = 10;
+  if(req.query.requstItemNumber != null) requestItemNumber = req.query.requstItemNumber;
+
+  //숫자가 아니면 error
+
+  const string = client.fetchSync('https://www.digitec.ch/de/s1/producttype/tv-4?tagIds=538&take=' + req.query.requstItemNumber);
   const productContent = string.$('.product-content');
   const result = { status: 'ok', list: [] };
   for (let i = 0; i < productContent.length; i += 1) {
