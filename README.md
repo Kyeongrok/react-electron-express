@@ -14,6 +14,20 @@
 * dev - 개발용 electron + server를 띄움
 * server - 서버만 실행한다
 
+### 실행 파일 만드는 법
+<pre>
+electron_build_with_react 를 실행한다.
+그러면 리액트빌드, 일렉트론 빌드 둘다 한다.
+</pre>
+
+### 
+<pre>
+미리 설치할 라이브러리들
+npm install -g react-scripts
+npm install -g electron-packager
+
+</pre>
+
 ### 크롤링 하는 방법
 1.digitec
 <pre>
@@ -58,3 +72,5 @@ https://vision.mediamarkt.ch/LocalServices/Search.svc/GetMoreResults
 
 5.conforama
 
+### api호출할 때 주의사항
+react에서 express 호출할 때 localhost 쓰지 말고 127.0.0.1 쓸 것

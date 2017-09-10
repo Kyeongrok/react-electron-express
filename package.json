@@ -26,6 +26,8 @@
     "cheerio-httpcli": "^0.7.0",
     "cookie-parser": "^1.4.1",
     "cors": "^2.8.4",
+    "electron-log": "^2.2.9",
+    "electron-logger": "0.0.3",
     "escope": "^3.6.0",
     "express": "^4.13.4",
     "json-parser": "^1.1.5",
@@ -37,7 +39,7 @@
     "react-bootstrap": "^0.31.3",
     "react-dom": "^15.4.2"
   },
-  "homepage": "http://krksap.tistory.com",
+  "homepage": "./",
   "main": "src/electron-starter.js",
   "scripts": {
     "start": "react-scripts start",
@@ -47,6 +49,7 @@
     "electron": "electron .",
     "server": "nodemon ./src/server/server.js",
     "dev": "nf start -p 3000",
-    "electron_build": "react-scripts build && electron-packager . --overwrite"
+    "electron_build_only": "electron-packager . --overwrite",
+    "electron_build_with_react": "react-scripts build && electron-packager . --overwrite"
   }
 }
