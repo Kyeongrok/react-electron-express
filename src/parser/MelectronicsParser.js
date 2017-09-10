@@ -15,7 +15,7 @@ var base_request_options = {
 var _total_item;
 
 console.log("start")
-request(base_request_options, function(error, response, html) {
+request(base_request_options, function (error, response, html) {
   if (error) { throw error; }
   // console.log(html);
 
@@ -43,24 +43,34 @@ function parser(index) {
   request_options = pagination_request_options;
   request_options["uri"] = pagination_url + index
   console.log(request_options)
-  request(request_options, function(error, response, html) {
+  request(request_options, function (error, response, html) {
     if (error) { throw error; }
     // console.log(html);
 
     // load website
     var $ = cheerio.load(html);
-
-    // for test
-    fs.writeFileSync('html' + index, html , 'utf8');
+    $('.right-area').each(function (index, elem) {
+      name = $(this).children('div').children('h3').text().replace(/\s/g, '');      
+      if (name) {
+        console.log(name);  
+        price = $(this).children('div').children('span').children('span');
+        if (price.children('span').text()) {
+          old = price.children('span').text()
+          console.log('old : ' + old)
+        } else {
+          current = price.text()
+          console.log('current : ' + current)
+        }
+      }
+    })
   })
 };
 
-setTimeout(function() {
+setTimeout(function () {
   //console.log(_total_item);
 
-  for (var i=0; i < _total_item/15; i++) {
-    parser(i*15);
+  for (var i = 0; i < _total_item / 15; i++) {
+    parser(i * 15);
     //console.log(i*15);
   }
-}, 10000); 
-  
+}, 10000);
