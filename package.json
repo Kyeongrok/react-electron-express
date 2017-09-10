@@ -21,6 +21,7 @@
   "dependencies": {
     "axios": "^0.16.2",
     "body-parser": "^1.15.0",
+    "bootstrap": "^3.3.7",
     "casperjs": "^1.1.4",
     "cheerio-httpcli": "^0.7.0",
     "cookie-parser": "^1.4.1",
@@ -33,6 +34,7 @@
     "phantom": "^4.0.5",
     "phantomjs": "^2.1.7",
     "react": "^15.4.2",
+    "react-bootstrap": "^0.31.3",
     "react-dom": "^15.4.2"
   },
   "homepage": "http://krksap.tistory.com",

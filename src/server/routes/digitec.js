@@ -13,9 +13,9 @@ router.get('/', (req, res, next) => {
 
   //숫자가 아니면 error
 
-  const string = client.fetchSync('https://www.digitec.ch/de/s1/producttype/tv-4?tagIds=538&take=' + req.query.requstItemNumber);
+  const string = client.fetchSync('https://www.digitec.ch/de/s1/producttype/tv-4?tagIds=538&take=' + requestItemNumber);
   const productContent = string.$('.product-content');
-  const result = { status: 'ok', list: [] };
+  const result = { status: 'ok', params: req.query, list: [] };
   for (let i = 0; i < productContent.length; i += 1) {
     result.list.push(digitecParser.getProductInfo(productContent[i]));
   }
