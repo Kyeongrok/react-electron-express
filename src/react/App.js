@@ -11,7 +11,7 @@ class App extends Component {
     this.state = {
       list: [],
       responseStatus:"ready",
-      requestItemNumberDigitec:10
+      requestItemNumberDigitec:100
     };
   }
   handleClickButton() {
@@ -20,7 +20,7 @@ class App extends Component {
       "requstItemNumber" : this.state.requestItemNumberDigitec,
     }
     console.log(params);
-    axios.get('http://localhost:1987/digitec', {params})
+    axios.get('http://127.0.0.1:1987/digitec', {params})
       .then( (response) => {
         console.log(response);
         this.setState({list: response.data.list, responseStatus: "ok"});
@@ -39,6 +39,9 @@ class App extends Component {
         <Grid>
           <Row className="show-grid">
             <Panel>
+              사용방법:원하는 상품 개수를 입력하고 ex)100 '불러오기'버튼을 누르세요.
+            </Panel>
+            <Panel>
               <Col xs={12} md={3}>
                 <Label>Digitec</Label>
               </Col>
@@ -54,8 +57,6 @@ class App extends Component {
               <Col xs={12} md={3}>
                 <Label>{this.state.responseStatus}</Label>
               </Col>
-
-
             </Panel>
             <Panel>
               {this.state.responseStatus==='request'?<Progress logoText={"Loading..."}/>:null}

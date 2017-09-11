@@ -14,23 +14,32 @@
 * dev - 개발용 electron + server를 띄움
 * server - 서버만 실행한다
 
+### 실행 파일 만드는 법
+<pre>
+electron_build_with_react 를 실행한다.
+그러면 리액트빌드, 일렉트론 빌드 둘다 한다.
+</pre>
+
+### 
+<pre>
+미리 설치할 라이브러리들
+npm install -g react-scripts
+npm install -g electron-packager
+
+</pre>
+
 ### 크롤링 하는 방법
 1.digitec
 <pre>
 300개 콜 한다.
 </pre>
 
-2.interdiscount
+2.microsport
 <pre>
-1페이지 ~ n페이지의 response가 없을때까지 call한다.
-11개 기준
-페이지당 8개 제품인것으로 보인다.
+https://www.brack.ch/tv-audio-foto/tv-und-homecinema/tv/tv?page=2
 </pre>
 
-<pre>
-여기는 안될 것으로 보임
-iframe안쪽은 내부 호출로 보이나 호출하는 곳 ip가 다르면 호출이 안됨 
-</pre>
+
 
 3.melectronics
 <pre>
@@ -57,4 +66,14 @@ https://vision.mediamarkt.ch/LocalServices/Search.svc/GetMoreResults
 </pre>
 
 5.conforama
+<pre>
+</pre>
 
+6.확인만 해볼 것
+<pre>
+https://www.alltron.ch/ce/tv-home-cinema/tv/tv?page=2&sortProducts
+https://www.microspot.ch/de/fernseher-audio/fernseher-heimkino/fernseher--C111000/?page=2
+</pre>
+
+### api호출할 때 주의사항
+react에서 express 호출할 때 localhost 쓰지 말고 127.0.0.1 쓸 것

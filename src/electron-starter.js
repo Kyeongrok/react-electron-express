@@ -1,7 +1,10 @@
+const log = require('electron-log');
+var logger = require('electron-logger');
+
+logger.setOutput({file:"./log.log"});
+
 const electron = require('electron');
-// Module to control application life.
 const app = electron.app;
-// Module to create native browser window.
 const BrowserWindow = electron.BrowserWindow;
 
 const path = require('path');
@@ -13,7 +16,9 @@ let mainWindow;
 let child;
 
 function renderWindow() {
+  logger.info('renderWindow');
   mainWindow = new BrowserWindow({ width: 1100, height: 600 });
+  console.log('path::', __dirname);
 
   // and load the index.html of the app.
   const startUrl = process.env.ELECTRON_START_URL || url.format({
@@ -21,9 +26,11 @@ function renderWindow() {
     protocol: 'file:',
     slashes: true,
   });
+
+  logger.info(startUrl);
   mainWindow.loadURL(startUrl);
   // Open the DevTools.
-  mainWindow.webContents.openDevTools();
+  // mainWindow.webContents.openDevTools();
 
   // Emitted when the window is closed.
   mainWindow.on('closed', () => {
@@ -34,13 +41,13 @@ function renderWindow() {
   });
 }
 
-
 function createWindow() {
   renderWindow();
+  let exec = require('child_process').exec;
   // Create the browser window.
-  const exec = require('child_process').exec;
   child = exec('node ./src/server/server.js');
   child.stdout.on('data', (data) => {
+    logger.info(data);
     console.log(`stdout: ${data}`);
   });
   child.stderr.on('data', (data) => {
@@ -59,8 +66,6 @@ app.on('ready', createWindow);
 
 // Quit when all windows are closed.
 app.on('window-all-closed', () => {
-  // On OS X it is common for applications and their menu bar
-  // to stay active until the user quits explicitly with Cmd + Q
   if (process.platform !== 'darwin') {
     child.kill();
     app.quit();
@@ -68,12 +73,7 @@ app.on('window-all-closed', () => {
 });
 
 app.on('activate', () => {
-  // On OS X it's common to re-create a window in the app when the
-  // dock icon is clicked and there are no other windows open.
   if (mainWindow === null) {
     createWindow();
   }
 });
-
-// In this file you can include the rest of your app's specific main process
-// code. You can also put them in separate files and require them here.
